@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      DATABASE_PATH: /app/data/chalk.db
+    volumes:
+      - chalk-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  chalk-data:
